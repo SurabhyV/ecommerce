@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400" rel="stylesheet" />
+    <link href="{% static 'pr/fontawesome/css/all.min.css' %}" rel="stylesheet" />
+    <link href="{% static 'pr/css/templatemo-comparto.css' %}" rel="stylesheet" />
+    <title>Comparto HTML CSS Template</title>
+<!--
+
+Comparto TemplateMo
+
+https://templatemo.com/tm-544-comparto
+
+-->
+</head>
+
+<body>
+    <!-- Back to top button -->
+    <a id="button"><i class="fas fa-angle-up fa-2x"></i></a>
+    <div class="container-fluid">
+
+        <section class="tm-mb-1" id="about">
+            <div class="tm-row tm-about-row">
+                <div class="tm-section-1-l">
+                    <img src="{{pr.img.url}}" alt="About image" class="tm-img-responsive" style="border-radius: 20px;">
+                </div>
+                <article class="tm-section-1-r tm-bg-color-8">
+                    <h2 class="tm-mb-2 tm-title-color">{{pr.name}}</h2>
+            <!--        <p><a rel="nofollow" href="https://templatemo.com/tm-544-comparto" target="_parent">Comparto</a> is a custom light-weight CSS layout for your website. You can easily adapt and use this for your commercial or personal websites. Feel free to use it.</p> -->
+                    <p>{{pr.desc}}<a rel="nofollow" href="https://templatemo.com/contact" target="_parent">contact TemplateMo</a> if you have any question.</p>
+                    <p>Price: Rs {{pr.price}}</p>
+                    <p>Stock left: {{pr.stock}}</p>
+                    {% if pr.stock <= 0 %} <!--space at both side of <= is necessary-->
+                    <h1 style="color:red">stock out</h1>
+                    {% else %}
+                    <a href="{% url 'addcart' pr.id %}" class="tm-btn tm-btn-1 tm-link-to-services">Add to cart</a>
+                    {% endif %}
+                </article>
+            </div>
+        </section>
+    </div>
+</body>
+</html>
+{% endblock %}

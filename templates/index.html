@@ -1,0 +1,129 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+<!--<!DOCTYPE html> -->
+<!--Template Name: Sislaf-->
+<!--Author: <a href="https://www.os-templates.com/">OS Templates</a>-->
+<!--Author URI: https://www.os-templates.com/-->
+<!--Copyright: OS-Templates.com-->
+<!--Licence: Free to use under our free template licence terms-->
+<!--Licence URI: https://www.os-templates.com/template-terms-->
+
+
+<!--<html lang="en">-->
+<!--&lt;!&ndash; To declare your language - read more here: https://www.w3.org/International/questions/qa-html-language-declarations &ndash;&gt;-->
+<!--<head>-->
+<!-- <title>FOODCORT</title>-->
+<!--<meta charset="utf-8">-->
+<!--<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">-->
+<!--<link href="{% static 'hm/layout/styles/layout.css' %}" rel="stylesheet" type="text/css" media="all">-->
+<!--</head>-->
+<body id="top">
+
+<!-- Top Background Image Wrapper -->
+<div class="bgded overlay" style="background-image:url({% static 'hm/images/demo/backgrounds/image.jpg' %});">
+
+  <div id="pageintro" class="hoc clear"> 
+    <!-- ################################################################################################ -->
+    <article>
+      <h3 class="heading">Lets  Touch your soul</h3>
+      <p style="font-size:20px;"> lets make your toungue curious with foodecommerce</p>
+      <footer>
+
+<!--        <ul class="nospace inline pushright">-->
+<!--          <li><a class="btn" href="#">Veg</a></li>-->
+<!--          <li><a class="btn inverse" href="#">Non-Veg</a></li>-->
+<!--        </ul>-->
+
+      </footer>
+    </article>
+    <!-- ################################################################################################ -->
+  </div>
+  <!-- ################################################################################################ -->
+</div>
+
+<!--<div class="category">-->
+<!--  <b style="color:white">-->
+<!--  {% for i in ct %}-->
+<!--     {{i.get_url}}<br>-->
+<!--  {% endfor %}-->
+<!--  </b>-->
+<!--</div>-->
+
+<!-- End Top Background Image Wrapper -->
+<div class="wrapper row3" >
+  <main class="hoc container clear"> 
+    <!-- main body -->
+    <!-- ################################################################################################ -->
+    <!--.....................................................................................................................................-->
+
+    <section id="introblocks">
+      <ul class="nospace group btmspace-80">
+        {% for i in pg.object_list %}
+<!--        <div class="row">-->
+<!--          <div class="col-m4-3">-->
+
+            <li class="one_third " >
+              <figure><a class="imgover" href="{{i.get_urls}}"><img src="{{i.img.url}}" alt=" Loding... " style="height:40%;"></a>
+               <figcaption >
+                 <h6 class="heading">{{i.name}}</h6>
+                 <p>{{i.desc|truncatewords:20}}</p>
+                 <p><b>Stock left:{{i.stock}}</b></p>
+<!--                 <p>{{i.available}}</p> -->
+                 <p><b>Rs:{{i.price}}</b></p>
+               </figcaption>
+              </figure>
+            </li>
+
+<!--          </div>-->
+<!--        </div>-->
+        {% endfor %}
+      </ul><br>
+    </section>
+
+    <!--.................................................................................................................................. -->
+    <!-- ################################################################################################ -->
+    <center>
+
+      {% for i in pg.paginator.page_range %}
+        <a href="?page={{i}}" class="btn btn-light btn-sm ">{{i}}</a>
+
+      {% endfor %}
+    </center>
+
+
+<!--     <center>-->
+<!--        {%if pg.has_previous %} {# whether the previous page exists #}-->
+<!--            <a href="?page={{pg.previous_page_number}}" class="btn btn-light" >previous</a> {# link to the prev page #}-->
+<!--        {% endif %}-->
+<!--        <span > {{pg.number}}</span> {# the current page number #}-->
+
+<!--        {%if pg.has_next %} {# whether the next page exists #}-->
+<!--            <a href="?page={{pg.next_page_number}}" class="btn btn-light">Next</a> {# link to the next page #}-->
+<!--        {% endif %}-->
+<!--    </center>-->
+
+
+
+    <hr class="btmspace-80">
+
+    <!-- / main body -->
+    <div class="clear"></div>
+  </main>
+</div>
+<!-- ################################################################################################ -->
+
+
+<div class="bgded overlay row4" style="background-image:url({% static 'hm/images/demo/backgrounds/05.png' %});">
+
+</div>
+<!-- ################################################################################################ -->
+
+<a id="backtotop" href="#top"><i class="fas fa-chevron-up"></i></a>
+<!-- JAVASCRIPTS -->
+<script src="{% static 'layout/scripts/jquery.min.js' %}"></script>
+<script src="{% static 'layout/scripts/jquery.backtotop.js' %}"></script>
+<script src="{% static 'layout/scripts/jquery.mobilemenu.js' %}"></script>
+</body>
+</html>
+{% endblock %}
